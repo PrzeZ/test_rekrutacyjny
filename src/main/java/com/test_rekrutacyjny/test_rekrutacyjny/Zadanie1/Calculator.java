@@ -1,6 +1,6 @@
 package com.test_rekrutacyjny.test_rekrutacyjny.Zadanie1;
 
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.StringUtils;
 
 public class Calculator {
     private final String separators = ".,;";
