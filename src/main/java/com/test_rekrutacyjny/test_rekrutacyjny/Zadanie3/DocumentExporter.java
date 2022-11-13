@@ -1,36 +1,24 @@
 package com.test_rekrutacyjny.test_rekrutacyjny.Zadanie3;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class DocumentExporter {
 
-    void WriteToCSV(String[][] allDocuments) {
-        File csvFile = new File("employees.csv");
+    public void WriteToCSV(Document document) {
+        String line = String.join("," , String.valueOf(document.getDocumentID()), document.getIssuer().getName(),
+         document.getRecipient().getName(), document.getDateOfIssue().toString());
 
         try {
-            FileWriter fileWriter = new FileWriter(csvFile);
-                    for (String[] data : allDocuments) {
-            StringBuilder line = new StringBuilder();
-            for (int i = 0; i < data.length; i++) {
-                line.append("\"");
-                line.append(data[i].replaceAll("\"","\"\""));
-                line.append("\"");
-                if (i != data.length - 1) {
-                    line.append(',');
-                }
-            }
-            line.append("\n");
-            fileWriter.write(line.toString());
-        }
-        fileWriter.close();
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get("documents.csv"));
+
+            writer.write("ID,Issuer,Recipient,Date");
+            writer.newLine();
+            writer.write(line);
+            writer.close();
         }
         catch (IOException e) {
             e.printStackTrace();
