@@ -34,8 +34,21 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.4</version>
     </dependency>
+
+  <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>5.3</version>
+  </dependency>
+
 </dependencies>
-	</dependencies>
+	
+   <dependency>
+     <groupId>org.junit.jupiter</groupId>
+     <artifactId>junit-jupiter-params</artifactId>
+     <version>5.5.1</version>
+   </dependency>
+ </dependencies>
 
 	<build>
 		<plugins>
