@@ -21,5 +21,8 @@ public class CalculatorTest {
         assertTrue(calculator.Calculate("1,2,3+") == 6);
         assertTrue(calculator.Calculate("1,2,3;4..+") == 10);
         assertTrue(calculator.Calculate("1,;;2,3;..4..+") == 10);
+        assertTrue(calculator.Calculate("1,;;2,3;....*") == 6);
+        assertTrue(calculator.Calculate("1+") == 1);
+        assertTrue(calculator.Calculate("1,2+") == 3);
     }
 }

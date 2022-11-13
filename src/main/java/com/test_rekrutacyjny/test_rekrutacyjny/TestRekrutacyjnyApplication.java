@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.test_rekrutacyjny.test_rekrutacyjny.Zadanie1.Calculator;
 import com.test_rekrutacyjny.test_rekrutacyjny.Zadanie3.Document;
 import com.test_rekrutacyjny.test_rekrutacyjny.Zadanie3.DocumentExporter;
 import com.test_rekrutacyjny.test_rekrutacyjny.Zadanie3.DocumentIssuer;
@@ -15,6 +16,10 @@ public class TestRekrutacyjnyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TestRekrutacyjnyApplication.class, args);
+
+		Calculator calculator = new Calculator();
+		calculator.Calculate("1,2;3.+");
+
 		DocumentIssuer issuer1 = new DocumentIssuer("Jan Kowalski");
 		DocumentRecipient recipient1 = new DocumentRecipient("Adam Kowalski", 10);
 
